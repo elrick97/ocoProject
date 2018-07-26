@@ -72,6 +72,7 @@
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="signUpButtonTapped:" destination="6g4-gN-WuI" eventType="touchUpInside" id="903-Sh-jSw"/>
+                                            <segue destination="1VX-nH-uIY" kind="show" identifier="toQuestionary" id="p0V-Wz-BZY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqf-PI-Rdb">
@@ -191,6 +192,121 @@
                 <exit id="INQ-in-LO1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1543" y="54"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="Oo8-iC-a9q">
+            <objects>
+                <viewController id="1VX-nH-uIY" customClass="QuestionViewController" customModule="ocoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6jr-MD-Jhd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kP-is-eyk">
+                                <rect key="frame" x="0.0" y="44" width="375" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long do you have your thermostat on at home per day?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoU-PH-LwB">
+                                        <rect key="frame" x="62.666666666666657" y="0.66666666666665719" width="249.99999999999997" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="3iR-OX-Xoi"/>
+                                            <constraint firstAttribute="width" constant="250" id="uoB-OZ-3ZQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.30334649279999998" green="0.79984930200000004" blue="0.2376509634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="OoU-PH-LwB" firstAttribute="centerY" secondItem="3kP-is-eyk" secondAttribute="centerY" id="CVe-b8-fyH"/>
+                                    <constraint firstAttribute="height" constant="250" id="KoS-Oq-7iH"/>
+                                    <constraint firstItem="OoU-PH-LwB" firstAttribute="centerX" secondItem="3kP-is-eyk" secondAttribute="centerX" id="y5W-72-uEj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeb-cZ-fmq">
+                                <rect key="frame" x="0.0" y="294" width="375" height="469"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZCL-dk-8SR">
+                                        <rect key="frame" x="37.666666666666657" y="151.66666666666669" width="300" height="166"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG2-tn-T68">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
+                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="2 or 3 times a week"/>
+                                                <connections>
+                                                    <action selector="btnATapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="UpF-8c-uuZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-Lc-IwZ">
+                                                <rect key="frame" x="0.0" y="44" width="300" height="34"/>
+                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="More than our neighbors"/>
+                                                <connections>
+                                                    <action selector="btnBTapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="OaO-Cy-inn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpO-Ll-mtc">
+                                                <rect key="frame" x="0.0" y="87.999999999999943" width="300" height="34"/>
+                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="this is how long the button can be"/>
+                                                <connections>
+                                                    <action selector="btnCTapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="SV2-tw-r3o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3o-u7-hsE">
+                                                <rect key="frame" x="0.0" y="131.99999999999994" width="300" height="34"/>
+                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="btnDTapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="RPA-sb-lwO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="zfi-MD-vnI"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ZCL-dk-8SR" firstAttribute="centerX" secondItem="qeb-cZ-fmq" secondAttribute="centerX" id="XlY-Sq-POm"/>
+                                    <constraint firstItem="ZCL-dk-8SR" firstAttribute="centerY" secondItem="qeb-cZ-fmq" secondAttribute="centerY" id="YjO-3a-84D"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8u-QN-UNw">
+                                <rect key="frame" x="0.0" y="763" width="15" height="15"/>
+                                <color key="backgroundColor" red="0.30334649279999998" green="0.79984930200000004" blue="0.2376509634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="R07-Ik-k6c"/>
+                                    <constraint firstAttribute="height" constant="15" id="T7x-8h-hIX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3kP-is-eyk" firstAttribute="leading" secondItem="6cd-Tt-7gp" secondAttribute="leading" id="4CQ-TC-eu4"/>
+                            <constraint firstItem="qeb-cZ-fmq" firstAttribute="top" secondItem="3kP-is-eyk" secondAttribute="bottom" id="9XR-e1-L5a"/>
+                            <constraint firstItem="qeb-cZ-fmq" firstAttribute="leading" secondItem="6cd-Tt-7gp" secondAttribute="leading" id="Df8-s4-gHA"/>
+                            <constraint firstItem="6cd-Tt-7gp" firstAttribute="trailing" secondItem="3kP-is-eyk" secondAttribute="trailing" id="HNV-t9-d65"/>
+                            <constraint firstItem="A8u-QN-UNw" firstAttribute="leading" secondItem="6cd-Tt-7gp" secondAttribute="leading" id="b7F-7J-Do4"/>
+                            <constraint firstItem="6cd-Tt-7gp" firstAttribute="bottom" secondItem="A8u-QN-UNw" secondAttribute="bottom" id="jAu-I8-xcA"/>
+                            <constraint firstItem="6cd-Tt-7gp" firstAttribute="trailing" secondItem="qeb-cZ-fmq" secondAttribute="trailing" id="rZq-Et-WDi"/>
+                            <constraint firstItem="A8u-QN-UNw" firstAttribute="top" secondItem="qeb-cZ-fmq" secondAttribute="bottom" id="rhf-1I-eI8"/>
+                            <constraint firstItem="3kP-is-eyk" firstAttribute="top" secondItem="6cd-Tt-7gp" secondAttribute="top" id="t4T-dE-FnJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6cd-Tt-7gp"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnAnswerA" destination="rG2-tn-T68" id="tl2-EV-WqF"/>
+                        <outlet property="btnAnswerB" destination="LzK-Lc-IwZ" id="V2k-sY-mrl"/>
+                        <outlet property="btnAnswerC" destination="KpO-Ll-mtc" id="LMs-Dt-evU"/>
+                        <outlet property="btnAnswerD" destination="f3o-u7-hsE" id="dgR-mm-uBe"/>
+                        <outlet property="progressBar" destination="A8u-QN-UNw" id="Hgw-lI-Ub4"/>
+                        <outlet property="questionTextLabel" destination="OoU-PH-LwB" id="Y78-Gf-pPy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iei-uS-Grc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="800"/>
         </scene>
     </scenes>
 </document>

@@ -30,6 +30,7 @@ class SignUpViewController: UIViewController {
                     print(error.localizedDescription)
                     return
                 } else {
+                    self.performSegue(withIdentifier: "toQuestionary", sender: self)
                     print("created succesfully")
                 }
             }
