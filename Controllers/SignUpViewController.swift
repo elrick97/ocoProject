@@ -19,26 +19,55 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        if let email = self.emailTextField.text, let password = self.passwordTextField.text, let name = nameTextField.text {
-            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                } else {
-                    self.performSegue(withIdentifier: "toQuestionary", sender: self)
-                    print("created succesfully")
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        let name = nameTextField.text
+        
+        if ((email?.isEmpty)! || (password?.isEmpty)! || (name?.isEmpty)!)
+        {
+                print("--------------EMPTY--------------")
+            let alertController = UIAlertController(title: "Please fill out all fields", message:
+                "We apreciate your effort", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else
+        {
+            Auth.auth().createUser(withEmail: email!, password: password!) { (user, error) in
+                    if let error = error
+                    {
+                        print(error.localizedDescription)
+                        let alertController = UIAlertController(title: "Make sure everything is filled correctly!", message:
+                            "Psw:6+ch/Valid mail/name", preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                        return
+                    }
+                    else
+                    {
+                        let user = Auth.auth().currentUser
+                        UserService.create(user!, name: name!, completion: { (user) in
+                            guard let user = user else {
+                                //handle Error
+                                return
+                            }
+                        })
+                        //make an update to firebase to update the user´s name
+                        self.performSegue(withIdentifier: "toQuestionary", sender: self)
+                        print("created succesfully")
+                    }
                 }
-            }
-        } else {
-            print("email/password can't be empty")
         }
     }
-    
     @IBAction func alreadyAUserTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "toLogin", sender: self)
     }

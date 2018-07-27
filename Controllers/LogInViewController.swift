@@ -21,8 +21,22 @@ class LogInViewController: UIViewController {
         
     }
     @IBAction func logInTapped(_ sender: Any) {
-        if let email = self.emailTextField.text, let password = self.passwordTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        
+        if ((email?.isEmpty)! && (password?.isEmpty)!)
+        {
+            print("--------------EMPTY--------------")
+            let alertController = UIAlertController(title: "Please fill out all fields", message:
+                "We apreciate your effort", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else
+        {
+            Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
                 if let error = error {
                     print(error.localizedDescription)
                     return
@@ -30,8 +44,6 @@ class LogInViewController: UIViewController {
                     print("You are IN")
                 }
             }
-        } else {
-            print("email/password can't be empty")
         }
     }
     @IBAction func createNewAccountTapped(_ sender: Any) {
