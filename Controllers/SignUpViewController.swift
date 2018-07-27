@@ -60,10 +60,15 @@ class SignUpViewController: UIViewController {
                                 //handle Error
                                 return
                             }
+                            
+                            User.setCurrent(user, writeToUserDefaults: true)
+                            
+                            self.performSegue(withIdentifier: "toQuestionary", sender: self)
+                            print("created succesfully")
                         })
                         //make an update to firebase to update the user´s name
-                        self.performSegue(withIdentifier: "toQuestionary", sender: self)
-                        print("created succesfully")
+                        
+                        
                     }
                 }
         }

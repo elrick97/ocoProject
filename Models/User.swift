@@ -10,11 +10,10 @@ import Foundation
 import UIKit
 import FirebaseDatabase.FIRDataSnapshot
 
-class User {
+class User: Codable {
     
     var uid: String
     var name: String
-    var email: String
     var quizScore: Int
     var energyPoints: Int
     var transportationPoints: Int
@@ -22,10 +21,9 @@ class User {
     var quizAverage: Int
 //    var password: String
     
-    init(name: String, email: String, quizScore: Int, quizAverage: Int/*, password: String*/, uid: String, energyPoints: Int, transportationPoints: Int, resourcesPoints: Int) {
+    init(name: String, quizScore: Int, quizAverage: Int/*, password: String*/, uid: String, energyPoints: Int, transportationPoints: Int, resourcesPoints: Int) {
         self.uid = uid
         self.name = name
-        self.email = email
         self.quizScore =  quizScore
         self.quizAverage = quizAverage
         self.energyPoints = energyPoints
@@ -38,7 +36,6 @@ class User {
         guard let dict = snapshot.value as? [String: Any],
             let name = dict["name"] as? String,
             let quizScore = dict["quizScore"] as? Int,
-            let email = dict["email"] as? String,
             let energyPoints = dict["energyPoints"] as? Int,
             let transportationPoints = dict["transportationPoints"] as? Int,
             let quizAverage = dict["quizAverage"] as? Int,
@@ -51,7 +48,23 @@ class User {
         self.quizAverage = quizAverage
         self.transportationPoints = transportationPoints
         self.resourcesPoints = resourcesPoints
-        self.email = email
     }
     
+    private static var _current: User?
+    
+    static var current: User {
+        guard let currentUser = _current else {
+            fatalError("Error: current user doesn't exist")
+        }
+        return currentUser
+    }
+    
+    static func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
+        if writeToUserDefaults {
+            if let data = try? JSONEncoder().encode(user) {
+                UserDefaults.standard.set(data, forKey: "currentUser")
+            }
+        }
+        _current = user
+    }
 }

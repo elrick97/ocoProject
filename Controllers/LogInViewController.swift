@@ -36,12 +36,16 @@ class LogInViewController: UIViewController {
         }
         else
         {
-            Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
+            Auth.auth().signIn(withEmail: email!, password: password!) { (data, error) in
                 if let error = error {
                     print(error.localizedDescription)
                     return
                 } else {
-                    print("You are IN")
+                    print("YOU ARE IN")
+                    let user1 = data?.user.uid
+                    UserService.show(forUID: (user1)!, completion: { (user1) in
+                        User.setCurrent(user1!, writeToUserDefaults: true)
+                    })
                 }
             }
         }
@@ -49,6 +53,4 @@ class LogInViewController: UIViewController {
     @IBAction func createNewAccountTapped(_ sender: Any) {
         performSegue(withIdentifier: "unwindToCreateAccount", sender: self)
     }
-    
-    
 }
