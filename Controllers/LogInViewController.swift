@@ -45,6 +45,7 @@ class LogInViewController: UIViewController {
                     let user1 = data?.user.uid
                     UserService.show(forUID: (user1)!, completion: { (user1) in
                         User.setCurrent(user1!, writeToUserDefaults: true)
+                        self.toMain()
                     })
                 }
             }
@@ -52,5 +53,12 @@ class LogInViewController: UIViewController {
     }
     @IBAction func createNewAccountTapped(_ sender: Any) {
         performSegue(withIdentifier: "unwindToCreateAccount", sender: self)
+    }
+    func toMain() {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        if let initialViewController = storyboard.instantiateInitialViewController() {
+            self.view.window?.rootViewController = initialViewController
+            self.view.window?.makeKeyAndVisible()
+        }
     }
 }

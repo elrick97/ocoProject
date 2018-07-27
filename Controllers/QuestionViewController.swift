@@ -50,6 +50,7 @@ class QuestionViewController: UIViewController {
             counter += 1
             updateUI()
         } else  {
+            toMain()
             //to main page
         }
     }
@@ -66,6 +67,7 @@ class QuestionViewController: UIViewController {
             counter += 1
             updateUI()
         } else  {
+            toMain()
             //to main page
         }
     }
@@ -82,6 +84,7 @@ class QuestionViewController: UIViewController {
             counter += 1
             updateUI()
         } else  {
+            toMain()
             //to main page
         }
     }
@@ -98,6 +101,7 @@ class QuestionViewController: UIViewController {
             counter += 1
             updateUI()
         } else  {
+            toMain()
             //to main page
         }
     }
@@ -111,6 +115,17 @@ class QuestionViewController: UIViewController {
         btnAnswerD.setTitle(answers.answers[counter][3], for: .normal)
         progressBar.frame.size.width = 1+(view.frame.size.width / 10) * CGFloat(counter)
     }
+    func toMain() {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        if let initialViewController = storyboard.instantiateInitialViewController() {
+            self.view.window?.rootViewController = initialViewController
+            self.view.window?.makeKeyAndVisible()
+        }
+    }
+    
+    
+    
+    
 }
 
 
