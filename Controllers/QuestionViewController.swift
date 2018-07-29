@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class QuestionViewController: UIViewController {
     
@@ -116,6 +118,7 @@ class QuestionViewController: UIViewController {
         progressBar.frame.size.width = 1+(view.frame.size.width / 10) * CGFloat(counter)
     }
     func toMain() {
+        updateValuesInFirebase()
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         if let initialViewController = storyboard.instantiateInitialViewController() {
             self.view.window?.rootViewController = initialViewController
@@ -123,9 +126,16 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    
-    
-    
+    func updateValuesInFirebase() {
+        let quizScore = resourcesPoints + transportationPoints + energyPoints
+        let user = User.current.uid
+        let ref = Database.database().reference().child("users").child(user)
+        ref.updateChildValues(["energyPoints" : energyPoints])
+        ref.updateChildValues(["transportationPoints" : transportationPoints])
+        ref.updateChildValues(["resourcesPoints" : resourcesPoints])
+        ref.updateChildValues(["quizScore" : quizScore])
+
+    }
 }
 
 
