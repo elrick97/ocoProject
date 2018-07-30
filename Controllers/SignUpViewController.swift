@@ -19,11 +19,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,8 +70,6 @@ class SignUpViewController: UIViewController {
                             print("created succesfully")
                         })
                         //make an update to firebase to update the user´s name
-                        
-                        
                     }
                 }
         }

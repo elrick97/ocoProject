@@ -63,19 +63,23 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTI-K2-rwd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTI-K2-rwd">
                                         <rect key="frame" x="51" y="288.33333333333331" width="150" height="40"/>
+                                        <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9Ca-O8-4S9"/>
                                             <constraint firstAttribute="width" constant="150" id="BDc-JJ-6KL"/>
                                         </constraints>
-                                        <state key="normal" title="Sign Up"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="signUpButtonTapped:" destination="6g4-gN-WuI" eventType="touchUpInside" id="903-Sh-jSw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqf-PI-Rdb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqf-PI-Rdb">
                                         <rect key="frame" x="51" y="348.33333333333337" width="150" height="40"/>
+                                        <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="HPn-67-fDU"/>
                                             <constraint firstAttribute="height" constant="40" id="M5k-49-nLg"/>
@@ -152,10 +156,12 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QW-0A-tDU">
                                         <rect key="frame" x="56.666666666666686" y="228.33333333333331" width="150" height="40"/>
+                                        <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="42c-rz-BW2"/>
                                             <constraint firstAttribute="width" constant="150" id="m7c-uP-iSN"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="logInTapped:" destination="zWp-Ap-Vv2" eventType="touchUpInside" id="XQB-f9-H4b"/>
@@ -163,10 +169,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWw-jR-dn9">
                                         <rect key="frame" x="56.666666666666686" y="288.33333333333337" width="150" height="40"/>
+                                        <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="ICj-j0-xsi"/>
                                             <constraint firstAttribute="height" constant="40" id="hbm-bl-8vl"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Create a new account"/>
                                         <connections>
                                             <action selector="createNewAccountTapped:" destination="zWp-Ap-Vv2" eventType="touchUpInside" id="mef-Ow-7d0"/>
@@ -211,11 +219,11 @@
                                             <constraint firstAttribute="width" constant="250" id="uoB-OZ-3ZQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.30334649279999998" green="0.79984930200000004" blue="0.2376509634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.46274509803921571" green="0.83921568627450982" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="OoU-PH-LwB" firstAttribute="centerY" secondItem="3kP-is-eyk" secondAttribute="centerY" id="CVe-b8-fyH"/>
                                     <constraint firstAttribute="height" constant="250" id="KoS-Oq-7iH"/>
@@ -230,7 +238,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG2-tn-T68">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
-                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="2 or 3 times a week"/>
                                                 <connections>
                                                     <action selector="btnATapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="UpF-8c-uuZ"/>
@@ -238,7 +246,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-Lc-IwZ">
                                                 <rect key="frame" x="0.0" y="44" width="300" height="34"/>
-                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="More than our neighbors"/>
                                                 <connections>
                                                     <action selector="btnBTapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="OaO-Cy-inn"/>
@@ -246,7 +254,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpO-Ll-mtc">
                                                 <rect key="frame" x="0.0" y="87.999999999999943" width="300" height="34"/>
-                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="this is how long the button can be"/>
                                                 <connections>
                                                     <action selector="btnCTapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="SV2-tw-r3o"/>
@@ -254,7 +262,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3o-u7-hsE">
                                                 <rect key="frame" x="0.0" y="131.99999999999994" width="300" height="34"/>
-                                                <color key="backgroundColor" red="0.30334649279789383" green="0.7998493020304569" blue="0.23765096336859179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="btnDTapped:" destination="1VX-nH-uIY" eventType="touchUpInside" id="RPA-sb-lwO"/>
@@ -274,7 +282,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8u-QN-UNw">
                                 <rect key="frame" x="0.0" y="763" width="15" height="15"/>
-                                <color key="backgroundColor" red="0.30334649279999998" green="0.79984930200000004" blue="0.2376509634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="R07-Ik-k6c"/>
                                     <constraint firstAttribute="height" constant="15" id="T7x-8h-hIX"/>
