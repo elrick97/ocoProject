@@ -128,13 +128,16 @@ class QuestionViewController: UIViewController {
     
     func updateValuesInFirebase() {
         let quizScore = resourcesPoints + transportationPoints + energyPoints
-        let user = User.current.uid
-        let ref = Database.database().reference().child("users").child(user)
+        let user = User.current
+        let ref = Database.database().reference().child("users").child(user.uid)
         ref.updateChildValues(["energyPoints" : energyPoints])
         ref.updateChildValues(["transportationPoints" : transportationPoints])
         ref.updateChildValues(["resourcesPoints" : resourcesPoints])
         ref.updateChildValues(["quizScore" : quizScore])
-
+        user.energyPoints = energyPoints
+        user.transportationPoints = transportationPoints
+        user.resourcesPoints = resourcesPoints
+        user.quizScore = quizScore
     }
 }
 

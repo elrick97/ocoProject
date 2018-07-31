@@ -8,35 +8,40 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class ProgressViewController: UIViewController {
     //-----------------------Overall Progress
     var shapeLayer: CAShapeLayer!
     var pulsatingLayer: CAShapeLayer!
+    @IBOutlet weak var overallView: UIView!
     //-----------------------left progress
     var shapeLayerLeft: CAShapeLayer!
+    @IBOutlet weak var leftView: UIView!
     //-----------------------middle progress
     var shapeLayerMiddle: CAShapeLayer!
+    @IBOutlet weak var middleView: UIView!
     //-----------------------right progress
     var shapeLayerRight: CAShapeLayer!
-
+    @IBOutlet weak var rightView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
         
-        setupCircleLayers()
-        setupCircleLayersLeft()
-        setupCircleLayersMiddle()
-        setupCircleLayersRight()
-        
-        animateCircle()
-        animateCircleLeft()
-        animateCircleMiddle()
-        animateCircleRight()
+//        setupCircleLayers()
+//        setupCircleLayersLeft()
+//        setupCircleLayersMiddle()
+//        setupCircleLayersRight()
+//
+//        animateCircle()
+//        animateCircleLeft()
+//        animateCircleMiddle()
+//        animateCircleRight()
     }
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupCircleLayersMiddle()
         setupCircleLayersLeft()
         setupCircleLayers()
@@ -53,25 +58,25 @@ class ProgressViewController: UIViewController {
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: CGFloat.pi, endAngle: 0, clockwise: true)
         layer.path = circularPath.cgPath
         layer.strokeColor = strokeColor.cgColor
-        layer.lineWidth = 20
+        layer.lineWidth = 25
         layer.fillColor = fillColor.cgColor
         layer.lineCap = kCALineCapRound
-        layer.position = view.center
+        layer.position = CGPoint(x: overallView.bounds.midX, y: overallView.bounds.midY + 50)
         return layer
     }
     private func setupCircleLayers() {
         pulsatingLayer = createCircleShapeLayer(strokeColor: .clear, fillColor: UIColor(red: 118/255, green: 214/255, blue: 113/255, alpha: 0.3))
-        view.layer.addSublayer(pulsatingLayer)
+        overallView.layer.addSublayer(pulsatingLayer)
         animatePulsatingLayer()
         
         let trackLayer = createCircleShapeLayer(strokeColor: UIColor(red: 76/255, green: 217/255, blue: 250/255, alpha: 1), fillColor: .white)
-        view.layer.addSublayer(trackLayer)
+        overallView.layer.addSublayer(trackLayer)
         
         shapeLayer = createCircleShapeLayer(strokeColor: UIColor(red: 118/255, green: 214/255, blue: 113/255, alpha: 1), fillColor: .clear)
         
         shapeLayer.transform = CATransform3DMakeRotation(CGFloat.pi / 1, 0, 0, 0)
         shapeLayer.strokeEnd = 0
-        view.layer.addSublayer(shapeLayer)
+        overallView.layer.addSublayer(shapeLayer)
     }
     private func animatePulsatingLayer() {
         let animation = CABasicAnimation(keyPath: "transform.scale")
@@ -120,19 +125,20 @@ class ProgressViewController: UIViewController {
         layer.lineWidth = 15
         layer.fillColor = fillColor.cgColor
         layer.lineCap = kCALineCapRound
-        layer.position = CGPoint(x: 80 , y: 610)
+        layer.position = CGPoint(x: leftView.bounds.midX, y: leftView.bounds.midY)
+
         return layer
     }
     private func setupCircleLayersLeft() {
         
-        let trackLayer = createCircleshapeLayerLeft(strokeColor: UIColor(red: 76/255, green: 217/255, blue: 250/255, alpha: 1), fillColor: .white)
-        view.layer.addSublayer(trackLayer)
+        let trackLayer = createCircleshapeLayerLeft(strokeColor: UIColor(red: 76/255, green: 217/255, blue: 250/255, alpha: 1), fillColor: .clear)
+        leftView.layer.addSublayer(trackLayer)
         
         shapeLayerLeft = createCircleshapeLayerLeft(strokeColor: UIColor(red: 118/255, green: 214/255, blue: 113/255, alpha: 1), fillColor: .clear)
         
         shapeLayerLeft.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
         shapeLayerLeft.strokeEnd = 0
-        view.layer.addSublayer(shapeLayerLeft)
+        leftView.layer.addSublayer(shapeLayerLeft)
     }
     //-----------------------LEFT [END]-----------------------
     
@@ -158,19 +164,20 @@ class ProgressViewController: UIViewController {
         layer.lineWidth = 15
         layer.fillColor = fillColor.cgColor
         layer.lineCap = kCALineCapRound
-        layer.position = CGPoint(x: 160 , y: 610)
+        layer.position = CGPoint(x: middleView.bounds.midX, y: middleView.bounds.midY)
+
         return layer
     }
     private func setupCircleLayersMiddle() {
         
-        let trackLayer = createCircleshapeLayerMiddle(strokeColor: UIColor(red: 76/255, green: 217/255, blue: 250/255, alpha: 1), fillColor: .white)
-        view.layer.addSublayer(trackLayer)
+        let trackLayer = createCircleshapeLayerMiddle(strokeColor: UIColor(red: 76/255, green: 217/255, blue: 250/255, alpha: 1), fillColor: .clear)
+        middleView.layer.addSublayer(trackLayer)
         
         shapeLayerMiddle = createCircleshapeLayerMiddle(strokeColor: UIColor(red: 118/255, green: 214/255, blue: 113/255, alpha: 1), fillColor: .clear)
         
         shapeLayerMiddle.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
         shapeLayerMiddle.strokeEnd = 0
-        view.layer.addSublayer(shapeLayerMiddle)
+        middleView.layer.addSublayer(shapeLayerMiddle)
     }
     //-----------------------MIDDLE [END]-----------------------
     
@@ -196,19 +203,42 @@ class ProgressViewController: UIViewController {
         layer.lineWidth = 15
         layer.fillColor = fillColor.cgColor
         layer.lineCap = kCALineCapRound
-        layer.position = CGPoint(x: 240 , y: 610)
+        layer.position = CGPoint(x: rightView.bounds.midX, y: rightView.bounds.midY)
+
         return layer
     }
     private func setupCircleLayersRight() {
         
-        let trackLayer = createCircleshapeLayerRight(strokeColor: UIColor(red: 76/255, green: 217/255, blue: 250/255, alpha: 1), fillColor: .white)
-        view.layer.addSublayer(trackLayer)
+        let trackLayer = createCircleshapeLayerRight(strokeColor: UIColor(red: 76/255, green: 217/255, blue: 250/255, alpha: 1), fillColor: .clear)
+        rightView.layer.addSublayer(trackLayer)
         
         shapeLayerRight = createCircleshapeLayerRight(strokeColor: UIColor(red: 118/255, green: 214/255, blue: 113/255, alpha: 1), fillColor: .clear)
         
         shapeLayerRight.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
         shapeLayerRight.strokeEnd = 0
-        view.layer.addSublayer(shapeLayerRight)
+        rightView.layer.addSublayer(shapeLayerRight)
     }
     //-----------------------RIGHT [END]-----------------------
+    func updateValues() {
+        let user = Auth.auth().currentUser
+        
+        
+        
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
