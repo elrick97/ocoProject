@@ -14,12 +14,12 @@ import FirebaseDatabase
 class QuestionViewController: UIViewController {
     
     var questions = ["How many times a week do you eat meat?",
-                     "How long you usually take to shower?",
+                     "How long do you usually take to a shower?",
                      "Do you recycle often?",
-                     "How much trash you produce compared to your neighbors?",
-                     "What type of transportation you usually use?",
-                     "Type of vehicle you or your family own?",
-                     "Average hours of car usage per day?",
+                     "How much trash do you produce compared to your neighbors?",
+                     "What type of transportation do you usually use?",
+                     "What type of vehicles do you or your family own?",
+                     "On average, how long do you commute a day?",
                      "Do you have any saving supplies at home?",
                      "How long do you have your thermostat on at home per day?",
                      "Do you usually try to use as less light as possible?"
@@ -29,9 +29,9 @@ class QuestionViewController: UIViewController {
     
     var counter = 0
     
-    var energyPoints = 0
-    var resourcesPoints = 0
-    var transportationPoints = 0
+    var energyPoints = Int()
+    var resourcesPoints = Int()
+    var transportationPoints = Int()
     
     @IBOutlet weak var questionTextLabel: UILabel!
     
@@ -59,23 +59,6 @@ class QuestionViewController: UIViewController {
     
     @IBAction func btnBTapped(_ sender: Any) {
         if counter <= 3 {
-            resourcesPoints += 1
-        } else if counter <= 6 {
-            transportationPoints += 1
-        } else if counter > 6 {
-            energyPoints += 1
-        }
-        if counter != 9 {
-            counter += 1
-            updateUI()
-        } else  {
-            toMain()
-            //to main page
-        }
-    }
-    
-    @IBAction func btnCTapped(_ sender: Any) {
-        if counter <= 3 {
             resourcesPoints += 2
         } else if counter <= 6 {
             transportationPoints += 2
@@ -91,13 +74,30 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    @IBAction func btnCTapped(_ sender: Any) {
+        if counter <= 3 {
+            resourcesPoints += 4
+        } else if counter <= 6 {
+            transportationPoints += 4
+        } else if counter > 6 {
+            energyPoints += 4
+        }
+        if counter != 9 {
+            counter += 1
+            updateUI()
+        } else  {
+            toMain()
+            //to main page
+        }
+    }
+    
     @IBAction func btnDTapped(_ sender: Any) {
         if counter <= 3 {
-            resourcesPoints += 3
+            resourcesPoints += 6
         } else if counter <= 6 {
-            transportationPoints += 3
+            transportationPoints += 6
         } else if counter > 6 {
-            energyPoints += 3
+            energyPoints += 6
         }
         if counter != 9 {
             counter += 1

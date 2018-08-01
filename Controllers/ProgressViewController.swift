@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseDatabase
 import FirebaseAuth
 
 class ProgressViewController: UIViewController {
@@ -24,38 +25,66 @@ class ProgressViewController: UIViewController {
     //-----------------------right progress
     var shapeLayerRight: CAShapeLayer!
     @IBOutlet weak var rightView: UIView!
+    
+    //LABELS
+    @IBOutlet weak var energyLabel: UILabel!
+    @IBOutlet weak var transportationLabel: UILabel!
+    @IBOutlet weak var resourcesLabel: UILabel!
+    
+//    let questionsViewController = QuestionViewController()
+    
+    var user: User?
+    
+    var energy = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
         
-//        setupCircleLayers()
-//        setupCircleLayersLeft()
-//        setupCircleLayersMiddle()
-//        setupCircleLayersRight()
-//
-//        animateCircle()
-//        animateCircleLeft()
-//        animateCircleMiddle()
-//        animateCircleRight()
     }
+    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        updateValues()
         setupCircleLayersMiddle()
         setupCircleLayersLeft()
         setupCircleLayers()
         setupCircleLayersRight()
+
+        if let _ = user {
+            animateCircle()
+            animateCircleLeft()
+            animateCircleMiddle()
+            animateCircleRight()
+        }
+    }
+    func updateValues() {
+        let user = User.current.uid
         
-        animateCircle()
-        animateCircleLeft()
-        animateCircleMiddle()
-        animateCircleRight()
+        UserService.show(forUID: user) { (user) in
+            
+            self.user = user
+            
+            self.energyLabel.text = "\(Int(Double((user?.energyPoints)!) / 24 * 100))%"
+            self.resourcesLabel.text = "\(Int(Double((user?.resourcesPoints)!) / 18 * 100))%"
+            self.transportationLabel.text = "\(Int(Double((user?.transportationPoints)!) / 18 * 100))%"
+            
+            self.energy = (user?.energyPoints)!
+            print(self.energy)
+            
+            self.animateCircle()
+            self.animateCircleLeft()
+            self.animateCircleMiddle()
+            self.animateCircleRight()
+        }
     }
     //-----------------------OVERALL[START]-----------------------
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: CGFloat.pi, endAngle: 0, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 130, startAngle: CGFloat.pi, endAngle: 0, clockwise: true)
         layer.path = circularPath.cgPath
         layer.strokeColor = strokeColor.cgColor
         layer.lineWidth = 25
@@ -81,7 +110,7 @@ class ProgressViewController: UIViewController {
     private func animatePulsatingLayer() {
         let animation = CABasicAnimation(keyPath: "transform.scale")
         
-        animation.toValue = 1.25
+        animation.toValue = 1.2
         animation.duration = 1
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         animation.autoreverses = true
@@ -89,10 +118,12 @@ class ProgressViewController: UIViewController {
         
         pulsatingLayer.add(animation, forKey: "pulsing")
     }
+    
     fileprivate func animateCircle() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        basicAnimation.toValue = 0.5
+        let num: Float = Float((user?.quizScore ?? 0))/60
+        basicAnimation.toValue = num
         
         basicAnimation.duration = 2
         
@@ -103,12 +134,12 @@ class ProgressViewController: UIViewController {
     }
     //-----------------------OVERALL[ENDS]-----------------------
     
-    //-----------------------LEFT BAR [START]-----------------------
+    //-----------------------LEFT BAR [+START]-----------------------
     fileprivate func animateCircleLeft() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        basicAnimation.toValue = 0.8
-        
+        let num: Float = Float((user?.energyPoints ?? 0))/24.0
+        basicAnimation.toValue = num
         basicAnimation.duration = 2
         
         basicAnimation.fillMode = kCAFillModeForwards
@@ -146,7 +177,8 @@ class ProgressViewController: UIViewController {
     fileprivate func animateCircleMiddle() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        basicAnimation.toValue = 0.6
+        let num: Float = Float((user?.transportationPoints ?? 0))/18.0
+        basicAnimation.toValue = num
         
         basicAnimation.duration = 2
         
@@ -185,7 +217,8 @@ class ProgressViewController: UIViewController {
     fileprivate func animateCircleRight() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        basicAnimation.toValue = 0.2
+        let num: Float = Float((user?.resourcesPoints ?? 0))/18.0
+        basicAnimation.toValue = num
         
         basicAnimation.duration = 2
         
@@ -219,12 +252,6 @@ class ProgressViewController: UIViewController {
         rightView.layer.addSublayer(shapeLayerRight)
     }
     //-----------------------RIGHT [END]-----------------------
-    func updateValues() {
-        let user = Auth.auth().currentUser
-        
-        
-        
-    }
     
 }
 
