@@ -19,9 +19,10 @@ class User: Codable {
     var transportationPoints: Int
     var resourcesPoints: Int
     var quizAverage: Int
+    var totalSeeds: Int
 //    var password: String
     
-    init(name: String, quizScore: Int, quizAverage: Int/*, password: String*/, uid: String, energyPoints: Int, transportationPoints: Int, resourcesPoints: Int) {
+    init(name: String, quizScore: Int, quizAverage: Int/*, password: String*/, uid: String, energyPoints: Int, transportationPoints: Int, resourcesPoints: Int, totalSeeds: Int) {
         self.uid = uid
         self.name = name
         self.quizScore =  quizScore
@@ -29,6 +30,7 @@ class User: Codable {
         self.energyPoints = energyPoints
         self.transportationPoints = transportationPoints
         self.resourcesPoints = resourcesPoints
+        self.totalSeeds = totalSeeds
 //        self.password = password
     }
     
@@ -39,7 +41,8 @@ class User: Codable {
             let energyPoints = dict["energyPoints"] as? Int,
             let transportationPoints = dict["transportationPoints"] as? Int,
             let quizAverage = dict["quizAverage"] as? Int,
-            let resourcesPoints = dict["resourcesPoints"] as? Int
+            let resourcesPoints = dict["resourcesPoints"] as? Int,
+            let totalSeeds = dict["totalSeeds"] as? Int
             else {return nil}
         self.uid = snapshot.key
         self.name = name
@@ -48,6 +51,7 @@ class User: Codable {
         self.quizAverage = quizAverage
         self.transportationPoints = transportationPoints
         self.resourcesPoints = resourcesPoints
+        self.totalSeeds = totalSeeds
     }
     
     private static var _current: User?

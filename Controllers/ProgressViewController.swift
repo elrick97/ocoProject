@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 import FirebaseDatabase
 import FirebaseAuth
 
@@ -40,6 +41,11 @@ class ProgressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (didAllow, error) in
+            
+            
+        }
+        
         view.backgroundColor = UIColor.white
         
     }
@@ -53,7 +59,7 @@ class ProgressViewController: UIViewController {
         setupCircleLayersLeft()
         setupCircleLayers()
         setupCircleLayersRight()
-
+        
         if let _ = user {
             animateCircle()
             animateCircleLeft()

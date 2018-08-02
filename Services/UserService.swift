@@ -18,7 +18,8 @@ class UserService {
                          "energyPoints": 0,
                          "transportationPoints": 0,
                          "resourcesPoints": 0,
-                         "quizAverage" : 0] as [String : Any]
+                         "quizAverage" : 0,
+                         "totalSeeds": 0] as [String : Any]
 
         let ref = Database.database().reference().child("users").child(firUser.uid)
         ref.setValue(userAttrs) { (error, ref) in

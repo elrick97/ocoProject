@@ -20,6 +20,10 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
     @IBAction func logInTapped(_ sender: Any) {
         
         let email = emailTextField.text

@@ -14,7 +14,7 @@ class Question {
 
     init() {
         question[0] = "How many times a week do you eat meat?"
-        question[1] = "How long you usually take to showe?"
+        question[1] = "How long you usually take to shower?"
         question[2] = "Do you recycle often?"
         question[3] = "How much trash you produce compared to your neighbors?"
         question[4] = "What type of transportation you usually use?"
