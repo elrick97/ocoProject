@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 protocol MyCellDelegate {
     func didTappedCheck(_ sender: ChallengeTableViewCell)
@@ -15,6 +16,7 @@ protocol MyCellDelegate {
 
 class ChallengeTableViewCell: UITableViewCell {
     
+    var challenge: Challenge?
     
     @IBOutlet weak var challengeTextLabel: UILabel!
     @IBOutlet weak var btnCheck: UIButton!
@@ -23,6 +25,7 @@ class ChallengeTableViewCell: UITableViewCell {
     
 
     @IBAction func btnCheckTapped(_ sender: Any) {
+//        CoreDataHelper.saveChallenge()
         delegate?.didTappedCheck(self)
     }
     

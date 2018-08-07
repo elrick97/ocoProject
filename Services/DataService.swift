@@ -22,3 +22,13 @@ class DataService {
                      "Bring a coffee mug"]
     }
 }
+
+//class Challenge {
+//    var name: String
+//    var isCompleted: Bool
+//
+//    init(name: String, isCompleted: Bool) {
+//        self.name = name
+//        self.isCompleted = isCompleted
+//    }
+//}
