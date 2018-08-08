@@ -191,8 +191,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjg-66-ljR">
-                                                <rect key="frame" x="187" y="65" width="10.333333333333343" height="20.333333333333329"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqw-gl-GhI">
+                                                <rect key="frame" x="373.66666666666669" y="0.0" width="10.333333333333314" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -200,10 +200,10 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="4NW-vJ-ehJ" firstAttribute="leading" secondItem="d81-UU-UlQ" secondAttribute="leading" id="25a-mQ-yVV"/>
-                                            <constraint firstItem="Cjg-66-ljR" firstAttribute="centerX" secondItem="d81-UU-UlQ" secondAttribute="centerX" id="JM0-Fe-kjI"/>
                                             <constraint firstItem="4NW-vJ-ehJ" firstAttribute="top" secondItem="d81-UU-UlQ" secondAttribute="top" id="UG1-QB-DuB"/>
-                                            <constraint firstItem="Cjg-66-ljR" firstAttribute="centerY" secondItem="d81-UU-UlQ" secondAttribute="centerY" id="ev1-1N-Dmg"/>
+                                            <constraint firstAttribute="trailing" secondItem="iqw-gl-GhI" secondAttribute="trailing" id="jFS-DK-ct8"/>
                                             <constraint firstAttribute="height" constant="150" id="nKR-tY-rnv"/>
+                                            <constraint firstItem="iqw-gl-GhI" firstAttribute="top" secondItem="d81-UU-UlQ" secondAttribute="top" id="zhR-BI-PvL"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete 3 challenges to collect a seed!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbs-E4-pdU">
@@ -286,7 +286,7 @@
                     <connections>
                         <outlet property="overallView" destination="d81-UU-UlQ" id="CAu-Bt-DQe"/>
                         <outlet property="tableView" destination="gTM-C5-tk9" id="wyN-Ng-yDt"/>
-                        <outlet property="totalSeedsTextLabel" destination="Cjg-66-ljR" id="WCu-q0-Bem"/>
+                        <outlet property="totalSeedsTextLabel" destination="iqw-gl-GhI" id="IeJ-AT-BFo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWv-xs-j35" userLabel="First Responder" sceneMemberID="firstResponder"/>

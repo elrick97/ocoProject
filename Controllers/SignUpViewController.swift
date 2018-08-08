@@ -19,8 +19,14 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var btnSignUp: UIButton!
+    @IBOutlet weak var btnAlreadyAUser: UIButton!
+    
+    
      override func viewDidLoad() {
         super.viewDidLoad()
+        btnSignUp.layer.cornerRadius = 20
+        btnAlreadyAUser.layer.cornerRadius = 20
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

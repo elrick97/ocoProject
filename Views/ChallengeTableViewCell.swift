@@ -31,7 +31,7 @@ class ChallengeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        btnCheck.layer.cornerRadius = 10
     }
     
     

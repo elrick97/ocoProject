@@ -45,6 +45,11 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        btnAnswerA.layer.cornerRadius = 20
+        btnAnswerB.layer.cornerRadius = 20
+        btnAnswerC.layer.cornerRadius = 20
+        btnAnswerD.layer.cornerRadius = 20
+
     }
     
     @IBAction func btnATapped(_ sender: Any) {

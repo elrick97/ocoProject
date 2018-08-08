@@ -101,6 +101,8 @@
                         <viewLayoutGuide key="safeArea" id="US6-Ia-tZl"/>
                     </view>
                     <connections>
+                        <outlet property="btnAlreadyAUser" destination="fqf-PI-Rdb" id="ioD-Ym-a4l"/>
+                        <outlet property="btnSignUp" destination="TTI-K2-rwd" id="3vc-6I-aYc"/>
                         <outlet property="emailTextField" destination="tNH-jS-5Rk" id="Rn1-u3-z7S"/>
                         <outlet property="nameTextField" destination="Vdq-oi-USv" id="9hQ-87-PMV"/>
                         <outlet property="passwordTextField" destination="GZZ-hn-Mmb" id="TnN-BE-WLz"/>
@@ -191,6 +193,8 @@
                         <viewLayoutGuide key="safeArea" id="aQ9-xV-jKF"/>
                     </view>
                     <connections>
+                        <outlet property="btnLogin" destination="5QW-0A-tDU" id="IFv-hr-86q"/>
+                        <outlet property="btnNewAccount" destination="HWw-jR-dn9" id="FBh-J5-Ipo"/>
                         <outlet property="emailTextField" destination="ZKF-Km-Sts" id="peH-FU-cBc"/>
                         <outlet property="passwordTextField" destination="psw-aD-Lny" id="AkM-pw-vez"/>
                         <segue destination="INQ-in-LO1" kind="unwind" identifier="unwindToCreateAccount" unwindAction="unwindWithSegue:" id="gjS-vJ-WD2"/>
@@ -299,7 +303,7 @@
                             <constraint firstItem="6cd-Tt-7gp" firstAttribute="bottom" secondItem="A8u-QN-UNw" secondAttribute="bottom" id="jAu-I8-xcA"/>
                             <constraint firstItem="6cd-Tt-7gp" firstAttribute="trailing" secondItem="qeb-cZ-fmq" secondAttribute="trailing" id="rZq-Et-WDi"/>
                             <constraint firstItem="A8u-QN-UNw" firstAttribute="top" secondItem="qeb-cZ-fmq" secondAttribute="bottom" id="rhf-1I-eI8"/>
-                            <constraint firstItem="3kP-is-eyk" firstAttribute="top" secondItem="6cd-Tt-7gp" secondAttribute="top" id="t4T-dE-FnJ"/>
+                            <constraint firstItem="6cd-Tt-7gp" firstAttribute="top" secondItem="qeb-cZ-fmq" secondAttribute="top" constant="-250" id="t4T-dE-FnJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6cd-Tt-7gp"/>
                     </view>

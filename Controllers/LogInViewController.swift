@@ -16,8 +16,15 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnNewAccount: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        btnLogin.layer.cornerRadius = 20
+        btnNewAccount.layer.cornerRadius = 20
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

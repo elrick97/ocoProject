@@ -15,6 +15,7 @@ class ChallengesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalSeedsTextLabel: UILabel!
     
+    var seedCounter = Int()
     var counter: Int = 0
     var reachesThreePoints = Bool()
     var shapeLayer: CAShapeLayer!
@@ -37,9 +38,9 @@ class ChallengesViewController: UIViewController {
         tableView.delegate = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = 100.0
-        
-        challenges = CoreDataHelper.retrieveData()
         updateCounter()
+        challenges = CoreDataHelper.retrieveData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,11 +59,12 @@ class ChallengesViewController: UIViewController {
         }
         if counter == 3 {
             counter = 0
+//            setupCircleLayers()
             for challenge in challenges {
                 challenge.isCompleted = false
             }
+            addSeed()
         }
-//        animateCircle()
     }
     
     func updateValues()
@@ -73,6 +75,7 @@ class ChallengesViewController: UIViewController {
             
             self.user = user
            
+            self.totalSeedsTextLabel.text = "\(user?.totalSeeds ?? 00)"
         }
     }
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer
@@ -142,6 +145,15 @@ class ChallengesViewController: UIViewController {
         basicAnimation.isRemovedOnCompletion = false
         
         shapeLayerBackwards.add(basicAnimation, forKey: "urSoBasic")
+    }
+    
+    func addSeed() {
+        let total = User.current.totalSeeds + 1
+        let user = User.current
+        let ref = Database.database().reference().child("users").child(user.uid)
+        ref.updateChildValues(["totalSeeds": total])
+        user.totalSeeds = total
+        updateValues()
     }
     
 }
