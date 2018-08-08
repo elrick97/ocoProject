@@ -45,10 +45,10 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        btnAnswerA.layer.cornerRadius = 20
-        btnAnswerB.layer.cornerRadius = 20
-        btnAnswerC.layer.cornerRadius = 20
-        btnAnswerD.layer.cornerRadius = 20
+        btnAnswerA.layer.cornerRadius = 10
+        btnAnswerB.layer.cornerRadius = 10
+        btnAnswerC.layer.cornerRadius = 10
+        btnAnswerD.layer.cornerRadius = 10
 
     }
     

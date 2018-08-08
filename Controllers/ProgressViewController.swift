@@ -43,9 +43,7 @@ class ProgressViewController: UIViewController {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (didAllow, error) in
             
-            
         }
-        
         view.backgroundColor = UIColor.white
         
     }
@@ -74,8 +72,8 @@ class ProgressViewController: UIViewController {
             
             self.user = user
             
-            self.energyLabel.text = "\(Int(Double((user?.energyPoints)!) / 24 * 100))%"
-            self.resourcesLabel.text = "\(Int(Double((user?.resourcesPoints)!) / 18 * 100))%"
+            self.energyLabel.text = "\(Int(Double((user?.energyPoints)!) / 18 * 100))%"
+            self.resourcesLabel.text = "\(Int(Double((user?.resourcesPoints)!) / 24 * 100))%"
             self.transportationLabel.text = "\(Int(Double((user?.transportationPoints)!) / 18 * 100))%"
             
             self.energy = (user?.energyPoints)!
@@ -144,7 +142,7 @@ class ProgressViewController: UIViewController {
     fileprivate func animateCircleLeft() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        let num: Float = Float((user?.energyPoints ?? 0))/24.0
+        let num: Float = Float((user?.energyPoints ?? 0))/18.0
         basicAnimation.toValue = num
         basicAnimation.duration = 2
         
@@ -223,7 +221,7 @@ class ProgressViewController: UIViewController {
     fileprivate func animateCircleRight() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        let num: Float = Float((user?.resourcesPoints ?? 0))/18.0
+        let num: Float = Float((user?.resourcesPoints ?? 0))/24.0
         basicAnimation.toValue = num
         
         basicAnimation.duration = 2

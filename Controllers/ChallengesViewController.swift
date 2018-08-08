@@ -38,9 +38,10 @@ class ChallengesViewController: UIViewController {
         tableView.delegate = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = 100.0
-        updateCounter()
-        challenges = CoreDataHelper.retrieveData()
         
+        challenges = CoreDataHelper.retrieveData()
+        updateCounter()
+        updateValues()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,19 +53,20 @@ class ChallengesViewController: UIViewController {
     
     func updateCounter() {
         counter = 0
+        updateValues()
         for challenge in challenges {
             if challenge.isCompleted {
                 counter += 1
             }
         }
-        if counter == 3 {
+        if counter >= 3 {
             counter = 0
-//            setupCircleLayers()
             for challenge in challenges {
                 challenge.isCompleted = false
             }
             addSeed()
         }
+        CoreDataHelper.saveData()
     }
     
     func updateValues()
@@ -72,10 +74,9 @@ class ChallengesViewController: UIViewController {
         let user = User.current.uid
         
         UserService.show(forUID: user) { (user) in
-            
             self.user = user
-           
             self.totalSeedsTextLabel.text = "\(user?.totalSeeds ?? 00)"
+            self.seedCounter = (user?.totalSeeds)!
         }
     }
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer
@@ -148,12 +149,12 @@ class ChallengesViewController: UIViewController {
     }
     
     func addSeed() {
-        let total = User.current.totalSeeds + 1
+        updateValues()
+        let total = self.seedCounter + 1
         let user = User.current
         let ref = Database.database().reference().child("users").child(user.uid)
         ref.updateChildValues(["totalSeeds": total])
         user.totalSeeds = total
-        updateValues()
     }
     
 }
@@ -173,7 +174,6 @@ extension ChallengesViewController : UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "challengeTableViewCell", for: indexPath) as! ChallengeTableViewCell
-//        cell.challenge = challenges[indexPath.row]
         if challenges[indexPath.row].isCompleted  {
             cell.btnCheck.backgroundColor = UIColor.gray
             cell.btnCheck.isEnabled = false

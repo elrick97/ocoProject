@@ -32,6 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let challenges = CoreDataHelper.retrieveData()
         if challenges.count == 0 {
             addChallengesToCoreData()
+            Notifications.setUpNotification1()
+            Notifications.setUpNotification2()
+            Notifications.setUpNotification3()
+            Notifications.setUpNotification4()
+            Notifications.setUpNotification5()
+            Notifications.setUpNotification6()
+            Notifications.setUpNotification7()
         }
         configureInitialRootViewController(for: window)
         return true
