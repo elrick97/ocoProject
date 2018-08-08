@@ -13,6 +13,8 @@ import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     @IBAction func unwind(segue:UIStoryboardSegue) { }
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -51,13 +53,12 @@ class SignUpViewController: UIViewController {
         else
         {
             Auth.auth().createUser(withEmail: email!, password: password!) { (user, error) in
-                    if let error = error
-                    {
+                    if let error = error {
                         print(error.localizedDescription)
                         let alertController = UIAlertController(title: "Make sure everything is filled correctly!", message:
                             "Psw:6+ch/Valid mail/name", preferredStyle: UIAlertControllerStyle.alert)
                         alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
-                        
+//                        self.activityIndicator.stopAnimating()
                         self.present(alertController, animated: true, completion: nil)
                         return
                     }
@@ -84,9 +85,6 @@ class SignUpViewController: UIViewController {
         self.performSegue(withIdentifier: "toLogin", sender: self)
     }
 }
-
-
-
 
 
 
