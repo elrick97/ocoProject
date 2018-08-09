@@ -45,10 +45,7 @@ class ProgressViewController: UIViewController {
             
         }
         view.backgroundColor = UIColor.white
-        
     }
-    
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -64,6 +61,13 @@ class ProgressViewController: UIViewController {
             animateCircleMiddle()
             animateCircleRight()
         }
+    }
+    
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "Seeds App", message:
+            "-This graphs represents your score based on the carbon footprint quiz. \n \n -You can also see what you get better on a specific area. \n \n -When ever you feel you have changed your habits go and retake the quiz. \n \n -You will be challenged every morning with small actions to change the world!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     func updateValues() {
         let user = User.current.uid
@@ -256,7 +260,6 @@ class ProgressViewController: UIViewController {
         rightView.layer.addSublayer(shapeLayerRight)
     }
     //-----------------------RIGHT [END]-----------------------
-    
 }
 
 

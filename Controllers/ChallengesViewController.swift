@@ -51,6 +51,14 @@ class ChallengesViewController: UIViewController {
         animateCircle()
     }
     
+    
+    @IBAction func infoBtnTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "About the Challenges", message:
+            "-Complete 3 challenges to collect a seed. \n \n -We use seeds to measure the impact of the this small actions. \n \n - The main goal is to shrink your carbon footprint with small actions.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func updateCounter() {
         counter = 0
         updateValues()

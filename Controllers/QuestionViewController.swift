@@ -120,7 +120,7 @@ class QuestionViewController: UIViewController {
         btnAnswerB.setTitle(answers.answers[counter][1], for: .normal)
         btnAnswerC.setTitle(answers.answers[counter][2], for: .normal)
         btnAnswerD.setTitle(answers.answers[counter][3], for: .normal)
-        progressBar.frame.size.width = 1+(view.frame.size.width / 10) * CGFloat(counter)
+        progressBar.frame.size.width = 1 + (view.frame.size.width / 10) * CGFloat(counter)
     }
     func toMain() {
         updateValuesInFirebase()
@@ -130,7 +130,6 @@ class QuestionViewController: UIViewController {
             self.view.window?.makeKeyAndVisible()
         }
     }
-    
     func updateValuesInFirebase() {
         let quizScore = resourcesPoints + transportationPoints + energyPoints
         let user = User.current
@@ -145,27 +144,3 @@ class QuestionViewController: UIViewController {
         user.quizScore = quizScore
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -58,7 +58,6 @@ class SignUpViewController: UIViewController {
                         let alertController = UIAlertController(title: "Make sure everything is filled correctly!", message:
                             "Psw:6+ch/Valid mail/name", preferredStyle: UIAlertControllerStyle.alert)
                         alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
-//                        self.activityIndicator.stopAnimating()
                         self.present(alertController, animated: true, completion: nil)
                         return
                     }
