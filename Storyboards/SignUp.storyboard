@@ -214,10 +214,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kP-is-eyk">
-                                <rect key="frame" x="0.0" y="44" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="294"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long do you have your thermostat on at home per day?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoU-PH-LwB">
-                                        <rect key="frame" x="62.666666666666657" y="0.66666666666665719" width="249.99999999999997" height="250"/>
+                                        <rect key="frame" x="62.666666666666657" y="22.666666666666657" width="249.99999999999997" height="249.99999999999997"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="3iR-OX-Xoi"/>
                                             <constraint firstAttribute="width" constant="250" id="uoB-OZ-3ZQ"/>
@@ -230,7 +230,6 @@
                                 <color key="backgroundColor" red="0.46274509803921571" green="0.83921568627450982" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="OoU-PH-LwB" firstAttribute="centerY" secondItem="3kP-is-eyk" secondAttribute="centerY" id="CVe-b8-fyH"/>
-                                    <constraint firstAttribute="height" constant="250" id="KoS-Oq-7iH"/>
                                     <constraint firstItem="OoU-PH-LwB" firstAttribute="centerX" secondItem="3kP-is-eyk" secondAttribute="centerX" id="y5W-72-uEj"/>
                                 </constraints>
                             </view>
@@ -299,6 +298,7 @@
                             <constraint firstItem="qeb-cZ-fmq" firstAttribute="top" secondItem="3kP-is-eyk" secondAttribute="bottom" id="9XR-e1-L5a"/>
                             <constraint firstItem="qeb-cZ-fmq" firstAttribute="leading" secondItem="6cd-Tt-7gp" secondAttribute="leading" id="Df8-s4-gHA"/>
                             <constraint firstItem="6cd-Tt-7gp" firstAttribute="trailing" secondItem="3kP-is-eyk" secondAttribute="trailing" id="HNV-t9-d65"/>
+                            <constraint firstItem="3kP-is-eyk" firstAttribute="top" secondItem="6jr-MD-Jhd" secondAttribute="top" id="X9L-z9-n6b"/>
                             <constraint firstItem="A8u-QN-UNw" firstAttribute="leading" secondItem="6cd-Tt-7gp" secondAttribute="leading" id="b7F-7J-Do4"/>
                             <constraint firstItem="6cd-Tt-7gp" firstAttribute="bottom" secondItem="A8u-QN-UNw" secondAttribute="bottom" id="jAu-I8-xcA"/>
                             <constraint firstItem="6cd-Tt-7gp" firstAttribute="trailing" secondItem="qeb-cZ-fmq" secondAttribute="trailing" id="rZq-Et-WDi"/>

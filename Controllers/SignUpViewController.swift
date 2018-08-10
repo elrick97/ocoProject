@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
                     if let error = error {
                         print(error.localizedDescription)
                         let alertController = UIAlertController(title: "Make sure everything is filled correctly!", message:
-                            "Psw:6+ch/Valid mail/name", preferredStyle: UIAlertControllerStyle.alert)
+                            "\(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                         alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
                         self.present(alertController, animated: true, completion: nil)
                         return
@@ -69,9 +69,14 @@ class SignUpViewController: UIViewController {
                                 //handle Error
                                 return
                             }
-                            
                             User.setCurrent(user, writeToUserDefaults: true)
-                            
+                            Notifications.setUpNotification1()
+                            Notifications.setUpNotification2()
+                            Notifications.setUpNotification3()
+                            Notifications.setUpNotification4()
+                            Notifications.setUpNotification5()
+                            Notifications.setUpNotification6()
+                            Notifications.setUpNotification7()
                             self.performSegue(withIdentifier: "toQuestionary", sender: self)
                             print("created succesfully")
                         })

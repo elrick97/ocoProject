@@ -49,7 +49,8 @@ class QuestionViewController: UIViewController {
         btnAnswerB.layer.cornerRadius = 10
         btnAnswerC.layer.cornerRadius = 10
         btnAnswerD.layer.cornerRadius = 10
-
+        
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     @IBAction func btnATapped(_ sender: Any) {

@@ -56,6 +56,13 @@ class LogInViewController: UIViewController {
                     let user1 = data?.user.uid
                     UserService.show(forUID: (user1)!, completion: { (user1) in
                         User.setCurrent(user1!, writeToUserDefaults: true)
+                        Notifications.setUpNotification1()
+                        Notifications.setUpNotification2()
+                        Notifications.setUpNotification3()
+                        Notifications.setUpNotification4()
+                        Notifications.setUpNotification5()
+                        Notifications.setUpNotification6()
+                        Notifications.setUpNotification7()
                         self.toMain()
                     })
                 }

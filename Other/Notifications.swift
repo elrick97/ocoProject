@@ -33,7 +33,7 @@ class Notifications {
         date.hour = 8
         date.minute = 30
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "identifier", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "identifier1", content: notificationContent, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     static func setUpNotification3() {
@@ -46,7 +46,7 @@ class Notifications {
         date.hour = 8
         date.minute = 30
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "identifier", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "identifier2", content: notificationContent, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     static func setUpNotification4() {
@@ -59,7 +59,7 @@ class Notifications {
         date.hour = 8
         date.minute = 30
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "identifier", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "identifier3", content: notificationContent, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     static func setUpNotification5() {
@@ -72,7 +72,7 @@ class Notifications {
         date.hour = 8
         date.minute = 30
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "identifier", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "identifier4", content: notificationContent, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     static func setUpNotification6() {
@@ -85,7 +85,7 @@ class Notifications {
         date.hour = 8
         date.minute = 30
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "identifier", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "identifier5", content: notificationContent, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     static func setUpNotification7() {
@@ -98,7 +98,7 @@ class Notifications {
         date.hour = 8
         date.minute = 30
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "identifier", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "identifier6", content: notificationContent, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }
